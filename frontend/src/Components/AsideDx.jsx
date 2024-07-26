@@ -11,8 +11,10 @@ import fetchWithAuth from '../services/fetchWithAuth';
 import { AuthContext } from '../Context/AuthContext';
 
 const AsideDx = () => {
+  const API = import.meta.env.API_VITE ||"http://localhost:5000";
+
   // URL per l'API dei profili
-  const url = 'http://localhost:5000/profile';
+  const urlprofiles = '/profile';
 
   const { authorLogin, setAuthorLogin } = useContext(AuthContext);
 
@@ -30,7 +32,7 @@ const AsideDx = () => {
     const fetchProfiles = async () => {
       setIsEnableSpinner(true);
       try {
-        const data = await fetchWithAuth(url, {
+        const data = await fetchWithAuth(API + urlprofiles, {
           headers: {
             'Content-Type': 'application/json',
           },

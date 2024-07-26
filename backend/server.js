@@ -35,7 +35,9 @@ const corsOptions = {
     // Definiamo una whitelist di origini consentite. 
     // Queste sono gli URL da cui il nostro frontend farà richieste al backend.
     const whitelist = [
-
+      "http://localhost:5173",
+      "https://epic-linkedin-ten.vercel.app",
+      "https://epic-linkedin.onrender.com"
     ];
 
     if (process.env.NODE_ENV === 'development') {

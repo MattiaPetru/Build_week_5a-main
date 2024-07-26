@@ -20,14 +20,14 @@ function Experiences({ profile }) {
   const idToUse = authorLogin._id || params._id;
 
   console.log(idToUse);
-
-  const urlExperiences = 'http://localhost:5000/profile';
+  const API = import.meta.env.API_VITE ||"http://localhost:5000";
+  const urlExperiences = '/profile';
 
   const fetchExperiences = async () => {
     setIsEnableSpinner(true);
     try {
       if (profile && profile._id) {
-        const data = await fetchWithAuth(`${urlExperiences}/${profile._id}/experiences`);
+        const data = await fetchWithAuth(`${API}${urlExperiences}/${profile._id}/experiences`);
         setExperiences(data);
       }
       setIsError(false);

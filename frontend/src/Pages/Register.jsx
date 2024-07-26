@@ -5,7 +5,8 @@ import fetchWithAuth from '../services/fetchWithAuth';
 
 export default function Register() {
   const navigate = useNavigate();
-  const API_URL = "http://localhost:5000/profile/";
+  const API = import.meta.env.API_VITE ||"http://localhost:5000";
+  const profile_url = "/profile/";
 
   const [register, setRegister] = useState({
     name: '',
@@ -30,7 +31,7 @@ export default function Register() {
     alert("Sono pronto a postare i dati");
 
     try {
-      const result = await fetchWithAuth(API_URL, {
+      const result = await fetchWithAuth(API + profile_url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
