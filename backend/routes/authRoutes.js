@@ -48,7 +48,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173/';
 router.get(
   "/google/callback",
   // Passport tenta di autenticare l'utente con le credenziali Google
-  passport.authenticate("google", { failureRedirect: "/" }),
+  passport.authenticate("google", { failureRedirect: "${FRONTEND_URL}/" }),
   // Se l'autenticazione fallisce, l'utente viene reindirizzato alla pagina di login
   async (req, res) => {
     try {
